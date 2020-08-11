@@ -60,6 +60,7 @@ These new classes are provided:
     * name
     * byteLength
     * slice()
+    * isSupported()
 
 * Atomics
     * add()
@@ -73,7 +74,8 @@ These new classes are provided:
     * store()
     * sub()
     * wait()
-    * xor()   
+    * xor()
+    * isSupported()
  
 ## Disclaimer
 
@@ -91,18 +93,22 @@ Both `SharedArrayBuffer` and `Atomics` are disabled on various browser
 versions (due to the exploits) either completely or activated
 with a default-disabled config flag. Some mobile browsers don't support
 them at all. 2020 has seen (desktop) Chrome, Firefox and Edge bring
-back support, provided these headers are sent:
+back support, provided the document is running in a secure context and
+these headers are sent:
 
 ```
 Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
+Both `SharedArrayBuffer` and `Atomics` provide `isSupported()`, which
+is a simple `undefined` check for both objects at this point.
+
 ## Example
 
 ```
 import eu.chainfire.kjs.sharedmemory.*
-import org.khronos.webgl.Uint32Array
+import org.khronos.webgl.*
 
 fun main() {
     val sab = SharedArrayBuffer(Uint32Array.BYTES_PER_ELEMENT * 3)
@@ -123,6 +129,6 @@ repositories {
 }
 
 dependencies {
-    implementation("eu.chainfire:kotlin-js-sharedmemory:1.0.0")
+    implementation("eu.chainfire:kotlin-js-sharedmemory:1.0.1")
 }
 ```

@@ -1,3 +1,4 @@
+import eu.chainfire.kjs.sharedmemory.SharedArrayBuffer
 import org.khronos.webgl.ArrayBufferView
 import org.khronos.webgl.Int32Array
 
@@ -17,3 +18,5 @@ external class Atomics {
         fun xor(typedArray: ArrayBufferView, index: Int, value: Int): Int
     }
 }
+
+inline fun Atomics.Companion.isSupported(): Boolean = js("typeof Atomics != 'undefined'").unsafeCast<Boolean>()

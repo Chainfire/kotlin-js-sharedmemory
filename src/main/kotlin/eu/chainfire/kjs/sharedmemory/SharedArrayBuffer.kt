@@ -7,3 +7,5 @@ external class SharedArrayBuffer(length: Int) : ArrayBuffer {
         val name: String
     }
 }
+
+inline fun SharedArrayBuffer.Companion.isSupported(): Boolean = js("typeof SharedArrayBuffer != 'undefined'").unsafeCast<Boolean>()
