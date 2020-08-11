@@ -85,6 +85,8 @@ because "why not", updates are dependent on my own needs and PR's.
 
 Inline documentation is not provided, see MDN for usage details.
 
+## Browser support
+
 Not all classes and methods are available in all browsers. Checking if
 the client supports these calls is up to you.
 
@@ -99,6 +101,17 @@ these headers are sent:
 ```
 Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
+```
+
+To serve these headers in a `KotlinWebpack` browser run, create a new a
+new directory called `webpack.config.d` in your project's root,
+with a new `whatever.js` inside:
+
+```
+config.devServer = config.devServer || {}
+config.devServer.headers = config.devServer.headers || {}
+config.devServer.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+config.devServer.headers["Cross-Origin-Embedder-Policy"] = "require-corp"
 ```
 
 Both `SharedArrayBuffer` and `Atomics` provide `isSupported()`, which
