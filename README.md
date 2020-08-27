@@ -106,7 +106,7 @@ Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-To serve these headers in a `KotlinWebpack` browser run, create a new a
+To serve these headers in a `KotlinWebpack` browser run, create a
 new directory called `webpack.config.d` in your project's root,
 with a new `whatever.js` inside:
 
