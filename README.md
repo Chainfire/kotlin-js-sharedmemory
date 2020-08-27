@@ -83,7 +83,9 @@ At the time of writing I've used Kotlin for about 3 days, so there may be
 room for improvement. This was written for a hobby project and shared
 because "why not", updates are dependent on my own needs and PR's. 
 
-Inline documentation is not provided, see MDN for usage details.
+Inline documentation is not provided, see 
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) 
+for usage details.
 
 ## Browser support
 
@@ -95,8 +97,9 @@ Both `SharedArrayBuffer` and `Atomics` are disabled on various browser
 versions (due to the exploits) either completely or activated
 with a default-disabled config flag. Some mobile browsers don't support
 them at all. 2020 has seen (desktop) Chrome, Firefox and Edge bring
-back support, provided the document is running in a secure context and
-these headers are sent:
+back support, provided the document is running in a 
+[secure context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) 
+(such as https or localhost) and these headers are sent:
 
 ```
 Cross-Origin-Opener-Policy: same-origin
